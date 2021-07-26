@@ -4084,6 +4084,7 @@ device* DEVICE( int s_number )
 //-----------------------------------------------------------------------------
 valve_AS::valve_AS( const char *dev_name, DEVICE_SUB_TYPE sub_type ):
     valve( true, true, dev_name, DT_V, sub_type ),
+    start_err_time( get_millisec() ),
     AS_number( 0 )
     {
     }

@@ -1706,6 +1706,7 @@ class valve_AS : public valve
             if ( ( o == 0 && i0 == 1 && i1 == 0 ) ||
                 ( o == 1 && i1 == 1 && i0 == 0 ) )
                 {
+                start_err_time = get_millisec();
                 return true;
                 }
 
@@ -1718,9 +1719,18 @@ class valve_AS : public valve
                 return true;
                 }
 
+            if ( get_delta_millisec( start_err_time ) <
+                get_par( valve::P_ON_TIME, 0 ) )
+                {
+                return true;
+                }
+
             return false;
 #endif // DEBUG_NO_IO_MODULES
             }
+
+        protected:
+            u_long start_err_time;
 
 #ifndef DEBUG_NO_IO_MODULES
         int get_off_fb_value()
