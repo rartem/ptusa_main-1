@@ -223,7 +223,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -455,7 +455,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -687,7 +687,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -919,7 +919,7 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -1151,9 +1151,85 @@
                     					
                     <fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.src/PAC/common/OPCUAServer.h" name="OPCUAServer.h" rcbsApplicability="disable" resourcePath="src/PAC/common/OPCUAServer.h" toolsToInvoke=""/>
                     					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.472144780" name="/" resourcePath="src/PAC/linux/PAC_PLCnext">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1508808688" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1021853888" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.1551233399" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.579101879" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.2029143555">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.869697191" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1935329929" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.963173817">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1352502439" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1079601546" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.648120630"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1450719759" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.823636505"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.1288213180" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.1140616004"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.694416963" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.15656669">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.71118079" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.572467812" name="/" resourcePath="src/PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.799094635" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1180675241" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.278344569" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.262047886" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.2029143555">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.470536758" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.451279006" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.963173817">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1845580364" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.980037301" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.648120630"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.860339107" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.823636505"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.248825382" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.1140616004"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.929007925" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.15656669">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.1088743271" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|PAC/linux/PAC_PLCnext|PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -1391,9 +1467,19 @@
                             							
                             <option id="cdt.managedbuild.option.gnu.cross.path.580018817.1877474863" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.580018817"/>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1144874624" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.312779774"/>
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1926215606" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1464715723"/>
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1144874624" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.312779774">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1061020029" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1926215606" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1464715723">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.819776979" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
                             							
                             <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.63004811" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.1218361809"/>
                             							
@@ -1401,7 +1487,11 @@
                             							
                             <tool id="cdt.managedbuild.tool.gnu.cross.archiver.404921683" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.435422152"/>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.1942325482" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.1112389937"/>
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.1942325482" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.1112389937">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.2010142489" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
                             						
                         </toolChain>
                         					
@@ -1409,7 +1499,627 @@
                     					
                     <sourceEntries>
                         						
-                        <entry excluding="zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        <entry excluding="bin|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        					
+                    </sourceEntries>
+                    				
+                </configuration>
+                			
+            </storageModule>
+            			
+            <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+            		
+        </cconfiguration>
+        		
+        <cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477">
+            			
+            <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477" moduleId="org.eclipse.cdt.core.settings" name="Debug 2021.0">
+                				
+                <macros>
+                    					
+                    <stringMacro name="PNSDK" type="VALUE_TEXT" value="/opt/pxc/sdk/AXCF2152/2021.0"/>
+                    					
+                    <stringMacro name="CPPVER" type="VALUE_TEXT" value="9.3.0"/>
+                    				
+                </macros>
+                				
+                <externalSettings/>
+                				
+                <extensions>
+                    					
+                    <extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    				
+                </extensions>
+                			
+            </storageModule>
+            			
+            <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+                				
+                <configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="Debug 2021.0" id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477" name="Debug 2021.0" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.debug">
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477." name="/" resourcePath="">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1825065915" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.259351044" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="arm-pxc-linux-gnueabi-" valueType="string"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1073839043" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/bin/arm-pxc-linux-gnueabi" valueType="string"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1363754754" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <builder buildPath="${workspace_loc:/main_ctrl_prg}/Debug" id="cdt.managedbuild.builder.gnu.cross.737093811" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1978012956" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+                                								
+                                <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.1561969571" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+                                								
+                                <option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.1367580417" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+                                								
+                                <option id="gnu.c.compiler.option.dialect.std.1260701689" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.134344647" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/lua&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua/src&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua_conf&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../tolua++/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/plcnext&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/arm-pxc-linux-gnueabi&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/backward&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include-fixed&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../zlib&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option id="gnu.c.compiler.option.dialect.flags.1272819975" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi" valueType="string"/>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2105415684" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1631672871" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+                                								
+                                <option id="gnu.cpp.compiler.option.optimization.level.1764923582" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+                                								
+                                <option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.option.debugging.level.127891917" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
+                                								
+                                <option id="gnu.cpp.compiler.option.dialect.std.1978701476" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.397086492" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../bin&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../tolua++/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/tolua++&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/lua&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/common&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/common/sys&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/linux&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/util&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/PAC-driver&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/linux/PAC_PC&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/IoT&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua/src&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua_conf&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/plcnext&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/arm-pxc-linux-gnueabi&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/backward&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include-fixed&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option id="gnu.cpp.compiler.option.other.other.1266423742" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
+                                								
+                                <option id="gnu.cpp.compiler.option.dialect.flags.1931889559" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi -fno-gnu-unique" valueType="string"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1126598178" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+                                    									
+                                    <listOptionValue builtIn="false" value="ARP_DEVICE_AXCF2152"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LINUX_OS"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="PAC_PLCNEXT"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="PAC_PLCNEXT_ALONE"/>
+                                    								
+                                </option>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1870615674" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.393817194" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1341927773" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+                                								
+                                <option id="gnu.cpp.link.option.flags.1284932829" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="--sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi -march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 -Wl,--no-undefined" valueType="string"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.478132193" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/arm-pxc-linux-gnueabi/${CPPVER}/&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.699620871" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+                                    									
+                                    <listOptionValue builtIn="false" value="dl"/>
+                                    								
+                                </option>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.cpp.link.option.other.1782109206" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false" valueType="stringList"/>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1533308772" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+                                    									
+                                    <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+                                    									
+                                    <additionalInput kind="additionalinput" paths="$(LIBS)"/>
+                                    								
+                                </inputType>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.115439346" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.571294497" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.1123265555" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.src/PAC/common/OPCUAServer.h" name="OPCUAServer.h" rcbsApplicability="disable" resourcePath="src/PAC/common/OPCUAServer.h" toolsToInvoke=""/>
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.src/PAC/linux/PAC_PLCnext" name="/" resourcePath="src/PAC/linux/PAC_PLCnext">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.418926549" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1021853888.590850846" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.1551233399.990613298" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1570886881" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.387621632" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1978012956">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1396226404" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1775022634" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1631672871">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.437090218" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1568002829" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.393817194"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.157217633" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.1341927773"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.1040697422" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.115439346"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.1216369596" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.571294497">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.290488060" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.src/PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer" name="/" resourcePath="src/PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1724362988" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1180675241.1361526331" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.278344569.833936526" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1356411584" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.648222941" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1978012956">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1569044028" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1042802551" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1631672871">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.261414954" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1441535615" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.393817194"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.544133333" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.1341927773"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.1598715064" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.115439346"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.35801890" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.571294497">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.759347635" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <sourceEntries>
+                        						
+                        <entry excluding="bin|PAC/linux/PAC_PLCnext|PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+                        					
+                    </sourceEntries>
+                    				
+                </configuration>
+                			
+            </storageModule>
+            			
+            <storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+            		
+        </cconfiguration>
+        		
+        <cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979">
+            			
+            <storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979" moduleId="org.eclipse.cdt.core.settings" name="Release 2021.0">
+                				
+                <macros>
+                    					
+                    <stringMacro name="PNSDK" type="VALUE_TEXT" value="/opt/pxc/sdk/AXCF2152/2021.0"/>
+                    					
+                    <stringMacro name="CPPVER" type="VALUE_TEXT" value="9.3.0"/>
+                    				
+                </macros>
+                				
+                <externalSettings/>
+                				
+                <extensions>
+                    					
+                    <extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+                    					
+                    <extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+                    				
+                </extensions>
+                			
+            </storageModule>
+            			
+            <storageModule moduleId="cdtBuildSystem" version="4.0.0">
+                				
+                <configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="Release 2021.0" id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979" name="Release 2021.0" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.debug">
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979." name="/" resourcePath="">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.2147017565" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.634165828" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="arm-pxc-linux-gnueabi-" valueType="string"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.174011631" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/bin/arm-pxc-linux-gnueabi" valueType="string"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1284393736" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <builder buildPath="${workspace_loc:/main_ctrl_prg}/Debug" id="cdt.managedbuild.builder.gnu.cross.1119060139" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1413716146" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+                                								
+                                <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.873291929" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.c.optimization.level.most" valueType="enumerated"/>
+                                								
+                                <option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.1207852102" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+                                								
+                                <option id="gnu.c.compiler.option.dialect.std.1530059331" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.531058204" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/lua&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua/src&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua_conf&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../tolua++/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/plcnext&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/arm-pxc-linux-gnueabi&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/backward&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include-fixed&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../zlib&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option id="gnu.c.compiler.option.dialect.flags.1139554051" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi" valueType="string"/>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.2136535498" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1447984823" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+                                								
+                                <option id="gnu.cpp.compiler.option.optimization.level.1249150928" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+                                								
+                                <option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.option.debugging.level.1044044182" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+                                								
+                                <option id="gnu.cpp.compiler.option.dialect.std.1562536265" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.868193627" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../bin&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../tolua++/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/tolua++&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/lua&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/common&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/common/sys&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/linux&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/util&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common/PAC-driver&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../common&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/linux/PAC_PC&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../PAC/IoT&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua/src&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${ProjDirPath}/../../../../../lua_conf&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/plcnext&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/arm-pxc-linux-gnueabi&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/include/c++/${CPPVER}/backward&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/arm-pxc-linux-gnueabi/gcc/arm-pxc-linux-gnueabi/${CPPVER}/include-fixed&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option id="gnu.cpp.compiler.option.other.other.2108741913" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
+                                								
+                                <option id="gnu.cpp.compiler.option.dialect.flags.1373468661" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 --sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi -fno-gnu-unique" valueType="string"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.278884237" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
+                                    									
+                                    <listOptionValue builtIn="false" value="ARP_DEVICE_AXCF2152"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="LINUX_OS"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="PAC_PLCNEXT"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="PAC_PLCNEXT_ALONE"/>
+                                    								
+                                </option>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.935619094" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1664862826" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.23447279" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+                                								
+                                <option id="gnu.cpp.link.option.flags.1306957102" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="--sysroot=${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi -march=armv7-a -mthumb -mfpu=neon -mfloat-abi=hard -mcpu=cortex-a9 -Wl,--no-undefined" valueType="string"/>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.1478678984" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/x86_64-pokysdk-linux/usr/lib/&quot;"/>
+                                    									
+                                    <listOptionValue builtIn="false" value="&quot;${PNSDK}/sysroots/cortexa9t2hf-neon-pxc-linux-gnueabi/usr/lib/arm-pxc-linux-gnueabi/${CPPVER}/&quot;"/>
+                                    								
+                                </option>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1256313580" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+                                    									
+                                    <listOptionValue builtIn="false" value="dl"/>
+                                    								
+                                </option>
+                                								
+                                <option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.cpp.link.option.other.274974137" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false" valueType="stringList"/>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.17723164" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+                                    									
+                                    <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+                                    									
+                                    <additionalInput kind="additionalinput" paths="$(LIBS)"/>
+                                    								
+                                </inputType>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.2116393267" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.2125955533" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.213680374" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979.src/PAC/common/OPCUAServer.h" name="OPCUAServer.h" rcbsApplicability="disable" resourcePath="src/PAC/common/OPCUAServer.h" toolsToInvoke=""/>
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979.src/PAC/linux/PAC_PLCnext" name="/" resourcePath="src/PAC/linux/PAC_PLCnext">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1768238981" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1021853888.590850846.618487156" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.1551233399.990613298.1031484572" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.57667922" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1677124564" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1413716146">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1638486896" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1352579814" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1447984823">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1516413321" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1681726592" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.1664862826"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.72990349" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.23447279"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.1883832691" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.2116393267"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.1254357055" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.2125955533">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.1329853587" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.2004698979.src/PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer" name="/" resourcePath="src/PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer">
+                        						
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.150854617" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug" unusedChildren="">
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.prefix.1085003066.1180675241.1361526331.1482202147" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix.1085003066"/>
+                            							
+                            <option id="cdt.managedbuild.option.gnu.cross.path.1913000415.278344569.833936526.791931046" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path.1913000415"/>
+                            							
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.2053979170" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1528724455" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.1413716146">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.333114373" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1807742483" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1447984823">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1886495232" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1298750783" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker.1664862826"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1477661686" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker.23447279"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.archiver.1476823159" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver.2116393267"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.993182262" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler.2125955533">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.1135212365" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                							
+                            </tool>
+                            						
+                        </toolChain>
+                        					
+                    </folderInfo>
+                    					
+                    <sourceEntries>
+                        						
+                        <entry excluding="bin|PAC/linux/PAC_PLCnext|PAC/linux/PAC_PLCnext/PtusaPLCnextEngineer|zlib/test|zlib/examples|zlib/doc|zlib/contrib|zlib/amiga|lua/src/luac.c|lua/src/lua.c|tolua++/src/bin|lua/src/loadlib.c|tolua++/src/tests|tolua++/win32|lua/etc|lua/src/wmain.c|PAC/common/rfid_reader_tolua.cpp|PAC/linux/PAC_WAGO_750_860|PAC/linux/PAC_PFC200|PAC/common/OPCUAServer.h|PAC/common/OPCUAServer.cpp|PAC/common/OPCUA_tolua.cpp|PAC/common/OPCUA|PAC/neuroPID|PAC/win|PAC/MINIOS7|PAC/DOC|common/WTL|common/win_util|common/RFID" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
                         					
                     </sourceEntries>
                     				
@@ -1435,6 +2145,8 @@
         		
         <configuration configurationName="Release 2020.0"/>
         		
+        <configuration configurationName="Debug 2021.0"/>
+        		
         <configuration configurationName="Debug 2019.9"/>
         		
         <configuration configurationName="Release 2019.3"/>
@@ -1448,6 +2160,8 @@
         </configuration>
         		
         <configuration configurationName="Release 2019.9"/>
+        		
+        <configuration configurationName="Release 2021.0"/>
         		
         <configuration configurationName="Debug">
             			
@@ -1489,6 +2203,12 @@
             		
         </scannerConfigBuildInfo>
         		
+        <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.;cdt.managedbuild.tool.gnu.cross.c.compiler.1978012956;cdt.managedbuild.tool.gnu.c.compiler.input.2105415684">
+            			
+            <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+            		
+        </scannerConfigBuildInfo>
+        		
         <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.;cdt.managedbuild.tool.gnu.cross.c.compiler.1253230877;cdt.managedbuild.tool.gnu.c.compiler.input.365510079">
             			
             <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
@@ -1513,7 +2233,25 @@
             		
         </scannerConfigBuildInfo>
         		
+        <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1451262124.1364031892.1133318477.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.1631672871;cdt.managedbuild.tool.gnu.cpp.compiler.input.1870615674">
+            			
+            <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+            		
+        </scannerConfigBuildInfo>
+        		
+        <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751.763797515.769728709;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751.763797515.769728709.;cdt.managedbuild.tool.gnu.cross.c.compiler.1128844101;cdt.managedbuild.tool.gnu.c.compiler.input.31513503">
+            			
+            <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+            		
+        </scannerConfigBuildInfo>
+        		
         <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751.;cdt.managedbuild.tool.gnu.cross.c.compiler.560239126;cdt.managedbuild.tool.gnu.c.compiler.input.903699451">
+            			
+            <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+            		
+        </scannerConfigBuildInfo>
+        		
+        <scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751.763797515.769728709;cdt.managedbuild.config.gnu.cross.exe.debug.1233455357.1633726751.763797515.769728709.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.1413248789;cdt.managedbuild.tool.gnu.cpp.compiler.input.623531930">
             			
             <autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
             		

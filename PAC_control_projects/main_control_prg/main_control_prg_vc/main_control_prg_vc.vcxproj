@@ -175,7 +175,7 @@ tolua++ -n rfid_reader -o "..\..\..\PAC\common\rfid_reader_tolua.cpp" "..\..\..\
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;User32.lib</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;User32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>tolua++ -n PAC_dev -o "..\..\..\PAC\common\PAC_dev_lua.cpp" "..\..\..\PAC\common\toloa++\pkg\PAC_dev.hh"
