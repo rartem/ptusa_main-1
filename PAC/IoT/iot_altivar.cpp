@@ -24,45 +24,24 @@ altivar_manager* altivar_manager::get_instance()
 	return instance;
 	}
 
-void altivar_manager::add_node(const char* IP_address, unsigned int port, unsigned int timeout, const char* article)
+void altivar_manager::add_node(const char* nodeName, const char* IP_address, unsigned int port, unsigned int timeout, const char* article)
 	{
-	std::string nodeip = std::string(IP_address);
 	int type = altivar_node::TYPE_ATV320;
-	std::string nodearticle = std::string(article);
-	if (nodearticle.find("630") != std::string::npos)
+	std::string nodeArticle = std::string(article);
+	if (nodeArticle.find("630") != std::string::npos)
 		{
 		type = altivar_node::TYPE_ATV630;
 		}
-
-	nodeip.append(":");
-	nodeip.append(std::to_string(port));
-	nodeip.append(" ");
-	nodeip.append(std::to_string(timeout));
 	altivar_node* new_node = new altivar_node(SOCKID_ALTIVAR + index, IP_address, port, timeout, type);
-	nodes.emplace(nodeip, new_node);
-	num_nodes.emplace(index, new_node);
+	nodes.emplace(nodeName, new_node);
 	index++;
 	}
 
-altivar_node * altivar_manager::get_node(const char * IP_address)
+altivar_node * altivar_manager::get_node(const char* nodeName)
 	{
 	altivar_node_map::iterator it;
-	it = nodes.find(IP_address);
+	it = nodes.find(nodeName);
 	if (it != nodes.end())
-		{
-		return it->second;
-		}
-	else
-		{
-		return nullptr;
-		}
-	}
-
-altivar_node* altivar_manager::get_node(unsigned int id)
-	{
-	altivar_node_num_map::iterator it;
-	it = num_nodes.find(id);
-	if (it != num_nodes.end())
 		{
 		return it->second;
 		}
@@ -108,6 +87,10 @@ altivar_node::altivar_node(unsigned int id, const char* ip, unsigned int port, u
 	configurestep = 0;
 	enabled = true;
 	queryinterval = 200;
+    minErrorTimeout = 60000;
+    errorTimer = get_millisec();
+    errorCountToReconfigure = 10;
+    errorCount = 0;
 	querytimer = get_millisec();
 	reverse = 0;
 	modbustimeout = get_millisec();
@@ -138,17 +121,21 @@ void altivar_node::Evaluate()
 		switch (querystep)
 			{
 			case RUN_STEP_CHECK_CONFIG:
+                lblRunStepCheckConfig:
 				if (configure && type == TYPE_ATV320)
 					{
 					configurestep = CFG_STEP_INIT_OUTPUTS;
 					querystep = RUN_STEP_CONFIG;
+                    goto lblRunStepConfig;
 					}
 				else
 					{
 					querystep = RUN_STEP_INIT_IOSCANNER;
+                    goto lblRunStepInitIoScanner;
 					}
 				break;
 			case RUN_STEP_CONFIG:
+                lblRunStepConfig:
 				switch (configurestep)
 					{
 					case CFG_STEP_INIT_OUTPUTS:
@@ -161,15 +148,19 @@ void altivar_node::Evaluate()
 						mc->set_int2(4, 0);
 						mc->set_int2(5, 0);
 						configurestep = CFG_STEP_SET_OUTPUTS;
+                        goto lblCfgStepSetOutputs;
 						break;
 					case CFG_STEP_SET_OUTPUTS:
+                        lblCfgStepSetOutputs:
 						if (mc->async_write_multiply_registers(15421, 6)) //Configure ouputs for modbus-scanner
 							{
 							configurestep = CFG_STEP_INIT_INPUTS;
+                            goto lblCfgStepInitInputs;
 							}
 						break;
 
 					case CFG_STEP_INIT_INPUTS:
+                        lblCfgStepInitInputs:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 3201);	//ETA(Status word) --default
@@ -179,97 +170,118 @@ void altivar_node::Evaluate()
 						mc->set_int2(4, 3204);	//LCR (Motor current)
 						mc->set_int2(5, 0);
 						configurestep = CFG_STEP_SET_INPUTS;
-						break;
+                        goto lblCfgStepSetInputs;
 					case CFG_STEP_SET_INPUTS:
+                        lblCfgStepSetInputs:
 						if (mc->async_write_multiply_registers(15401, 6)) //Configure inputs for modbus-scanner
 							{
 							configurestep = CFG_STEP_INIT_IOSCANNER;
+                            goto lblCfgStepInitIoScanner;
 							}
 						break;
-
 					case CFG_STEP_INIT_IOSCANNER:
+                        lblCfgStepInitIoScanner:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 1);
 						configurestep = CFG_STEP_SET_IOSCANNER;
-						break;
+                        goto lblCfgStepSetIoScanner;
 					case CFG_STEP_SET_IOSCANNER:
+                        lblCfgStepSetIoScanner:
 						if (mc->async_write_multiply_registers(64239, 1)) //Enable IO scanner
 							{
 							configurestep = CFG_STEP_INIT_IOPROFILE;
+                            goto lblCfgStepInitIoProfile;
 							}
 						break;
 
 					case CFG_STEP_INIT_IOPROFILE:
+                        lblCfgStepInitIoProfile:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 3);
 						configurestep = CFG_STEP_SET_IOPROFILE;
-						break;
+                        goto lblCfgStepSetIoProfile;
 					case CFG_STEP_SET_IOPROFILE:
+                        lblCfgStepSetIoProfile:
 						if (mc->async_write_multiply_registers(8401, 1)) //Setting IO-profile
 							{
 							configurestep = CFG_STEP_INIT_REF1;
+                            goto lblCfgStepInitRef1;
 							}
 						break;
 
 					case CFG_STEP_INIT_REF1:
+                        lblCfgStepInitRef1:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 169);
 						configurestep = CFG_STEP_SET_REF1;
-						break;
+                        goto lblCfgStepSetRef1;
 					case CFG_STEP_SET_REF1:
+                        lblCfgStepSetRef1:
 						if (mc->async_write_multiply_registers(8413, 1)) //Control frequency via modbus
 							{
 							configurestep = CFG_STEP_INIT_CMD1;
+                            goto lblCfgStepInitCmd1;
 							}
 						break;
 
 					case CFG_STEP_INIT_CMD1:
+                        lblCfgStepInitCmd1:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 30);
 						configurestep = CFG_STEP_SET_CMD1;
-						break;
+                        goto lblCfgStepSetCmd1;
 					case CFG_STEP_SET_CMD1:
+                        lblCfgStepSetCmd1:
 						if (mc->async_write_multiply_registers(8423, 1)) //Command channel via modbus
 							{
 							configurestep = CFG_STEP_INIT_FAULTRESET;
+                            goto lblCfgStepInitFaultReset;
 							}
 						break;
 
 					case CFG_STEP_INIT_FAULTRESET:
+                        lblCfgStepInitFaultReset:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 1);		//Enable automatic restart
 						mc->set_int2(1, 0);		//automatic restart timeout
 						mc->set_int2(2, 210);	//Bind error reset to 2 bit of CMD word.
 						configurestep = CFG_STEP_SET_FAULTRESET;
-						break;
+                        goto lblCfgStepSetFaultReset;
 					case CFG_STEP_SET_FAULTRESET:
+                        lblCfgStepSetFaultReset:
 						if (mc->async_write_multiply_registers(7122, 3)) //Configure fault reset.
 							{
 							configurestep = CFG_STEP_INIT_SAVESETTINGS;
+                            goto lfbCfgStepInitSaveSettings;
 							}
 						break;
 
 					case CFG_STEP_INIT_SAVESETTINGS:
+                        lfbCfgStepInitSaveSettings:
 						mc->zero_output_buff();
 						mc->set_station(0);
 						mc->set_int2(0, 1);
 						configurestep = CFG_STEP_SET_SAVESETTINGS;
-						break;
+                        goto lblCfgStepSetSaveSettings;
 					case CFG_STEP_SET_SAVESETTINGS:
+                        lblCfgStepSetSaveSettings:
 						if (mc->async_write_multiply_registers(8001, 1)) //Save settings as Profile1
 							{
 							configurestep = CFG_STEP_END;
+                            goto lblCfgStepEnd;
 							}
 						break;
 
 					case CFG_STEP_END:
+                        lblCfgStepEnd:
 						configure = false;
-						querystep = 2;
+						querystep = RUN_STEP_INIT_IOSCANNER;
+                        goto lblRunStepInitIoScanner;
 						break;
 					default:
 						configurestep = 0;
@@ -277,6 +289,7 @@ void altivar_node::Evaluate()
 					}
 				break;
 			case RUN_STEP_INIT_IOSCANNER:
+                lblRunStepInitIoScanner:
 				mc->zero_output_buff(15);
 				mc->set_station(255);
 				mc->set_int2(2, cmd);
@@ -285,14 +298,16 @@ void altivar_node::Evaluate()
 				mc->set_int2(5, 0);
 				mc->set_int2(6, 0);
 				mc->set_int2(7, 0);
-				querystep = RUN_STEP_QUERY_IOSCANNER;
-				break;
+                querystep = RUN_STEP_QUERY_IOSCANNER;
+                goto lblRunIoScanner;
 			case RUN_STEP_QUERY_IOSCANNER:
+                lblRunIoScanner:
 				start_addr = 1;
 				if (type == TYPE_ATV630) start_addr = 0;
 				commres = mc->async_read_write_multiply_registers(start_addr, 6, start_addr, 6);
 				if (commres == 1)
 					{
+                    errorCount = 0;
 					remote_state = mc->get_int2(0);
 					rpm_value = mc->get_int2(1);
 					frq_value = mc->get_int2(2) / 10.0f;
@@ -301,40 +316,65 @@ void altivar_node::Evaluate()
 					if (frq_max > FRQ_MAX_SETTING) frq_max = FRQ_MAX_SETTING;
 					amperage = mc->get_int2(4) / 10.0f;
 					int newstate = remote_state & 0x006F;
+                    int outState = 0;
 					switch (newstate)
 						{
 						case 0x0040: //switch on disabled
-							state = 0;
+                            outState = 0;
 							break;
 						case 0x0021: //ready to switch on
-							state = 0;
+                            outState = 0;
 							break;
 						case 0x0023: //switched on
-							state = 0;
+                            outState = 0;
 							break;
 						case 0x0027: //operation enabled
-							reverse ? state = 2 : state = 1;
+							reverse ? outState = 2 : outState = 1;
 							break;
 						case 0x0007: //quick stop active
-							state = -1;
+                            outState = -1;
 							break;
 						default:
-							state = -1;
+                            //G_LOG->error("Altivar unknown state %d", remote_state);
+                            outState = -1;
 							break;
 						}
+                    if ( outState < 0 )
+                        {
+                        if ( get_delta_millisec( errorTimer ) >= minErrorTimeout )
+                            {
+                            state = outState;
+                            }
+                        }
+                    else
+                        {
+                        errorTimer = get_millisec( );
+                        state = outState;
+                        }
 					querystep = RUN_STEP_INIT_END;
+                    goto lblRunStepInitEnd;
 					}
 				if (commres == -1) //IO scanner not configured. Launch configuration.
 					{
-					configure = 1;
-					querystep = RUN_STEP_CHECK_CONFIG;
+                    errorCount++;
+                    if (errorCount >= errorCountToReconfigure)
+                        {
+                        configure = 1;
+                        errorCount = 0;
+                        querystep = RUN_STEP_CHECK_CONFIG;
+                        goto lblRunStepCheckConfig;
+                        }
+                    goto lblRunStepInitIoScanner;
 					}
 				break;
 			case RUN_STEP_INIT_END:
+                lblRunStepInitEnd:
 				querytimer = get_millisec();
 				querystep = RUN_STEP_END;
+                goto lblRunStepEnd;
 				break;
 			case RUN_STEP_END:
+                lblRunStepEnd:
 				if (get_delta_millisec(querytimer) > queryinterval)
 					{
 					querystep = RUN_STEP_CHECK_CONFIG;

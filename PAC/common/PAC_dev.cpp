@@ -7779,18 +7779,13 @@ void motor_altivar::set_string_property(const char * field, const char * value)
         {
         int port = 502;
         int timeout = 300;
-        std::string nodeip = std::string(value);
-        nodeip.append(":");
-        nodeip.append(std::to_string(port));
-        nodeip.append(" ");
-        nodeip.append(std::to_string(timeout));
         if (!atv)
             {
-            atv = G_ALTIVAR_MANAGER()->get_node(nodeip.c_str());
+            atv = G_ALTIVAR_MANAGER()->get_node(get_name());
             if (!atv)
                 {
-                G_ALTIVAR_MANAGER()->add_node(value, port, timeout, get_article() );
-                atv = G_ALTIVAR_MANAGER()->get_node(nodeip.c_str());
+                G_ALTIVAR_MANAGER()->add_node(get_name(), value, port, timeout, get_article() );
+                atv = G_ALTIVAR_MANAGER()->get_node(get_name());
                 }
             }
         }

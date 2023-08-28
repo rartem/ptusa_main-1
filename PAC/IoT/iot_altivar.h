@@ -2,6 +2,7 @@
 
 #include "iot_base.h"
 #include "smart_ptr.h"
+#include "log.h"
 #include <map>
 #include <string>
 class modbus_client;
@@ -16,6 +17,11 @@ class altivar_node: public i_iot_node
 		void Disable();
 		bool enabled;
 		unsigned long queryinterval;
+        unsigned long errorTimer;
+
+        unsigned int minErrorTimeout;
+        int errorCountToReconfigure;
+        int errorCount;
 
 		
 		float frq_value;
@@ -100,16 +106,12 @@ class altivar_manager
 		virtual ~altivar_manager();
 
 		static altivar_manager* get_instance();
-		void add_node(const char* IP_address, unsigned int port, unsigned int timeout, const char* article);
-		altivar_node* get_node(const char* IP_address);
-		altivar_node* get_node(unsigned int id);
+		void add_node(const char* nodeName, const char* IP_address, unsigned int port, unsigned int timeout, const char* article);
+		altivar_node* get_node(const char* nodeName);
 		void evaluate();
 	protected:
 		altivar_manager();
 		altivar_node_map nodes;
-		altivar_node_num_map num_nodes;
-		//altivar_node** nodes;
-		//u_int nodes_count;
 
 		static auto_smart_ptr< altivar_manager > instance;
 		static unsigned int index;
