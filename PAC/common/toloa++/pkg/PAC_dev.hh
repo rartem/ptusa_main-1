@@ -2046,6 +2046,7 @@ class ParamsRecipeAdapter
 
 class ParamsRecipeManager
     {
+        void evaluate();
         ParamsRecipeStorage* createRecipes(int size, int quantity);
         ParamsRecipeAdapter* createAdapter( ParamsRecipeStorage* recStorage );
     };
