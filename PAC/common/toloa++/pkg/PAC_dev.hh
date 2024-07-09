@@ -2042,6 +2042,7 @@ class ParamsRecipeAdapter
     {
         void addMap(unsigned int startRecPar, unsigned int startObjPar, unsigned int quantity);
         void loadParams( int techObject, unsigned int recNo );
+        void setUseSeparateRecipeList( bool state );
     };
 
 class ParamsRecipeManager
