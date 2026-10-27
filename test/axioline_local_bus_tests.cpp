@@ -397,6 +397,64 @@ TEST_F( local_bus_io, mixed_modules_keep_word_and_bit_offsets )
     EXPECT_EQ( node->DO[95], 1 );
     }
 
+TEST_F( local_bus_io, di8do8_inputs_use_project_bits_40_to_47 )
+    {
+    for ( auto type : { io_manager::io_node::PHOENIX_AXC_F_2152,
+        io_manager::io_node::PHOENIX_AXC_F_2152_IOCTL } )
+        {
+        for ( auto article : { 2701916u, 2702071u } )
+            {
+            create( { { 2688022, 2, false }, { 2688048, 2, false },
+                { article, 1, false }, { 2688022, 2, false } }, type );
+            driver->inputs[2] = { 0xA5 };
+            driver->inputs[3] = { 0x12, 0x34 };
+            ASSERT_EQ( manager->read_inputs(), 0 );
+            EXPECT_EQ( node->AI[2], 0x00A5 );
+            for ( unsigned int bit = 0; bit < 8; ++bit )
+                {
+                EXPECT_EQ( node->DI[32 + bit], 0 );
+                EXPECT_EQ( node->DI[40 + bit], ( 0xA5 >> bit ) & 1 );
+                }
+            EXPECT_EQ( node->AI[3], 0x1234 );
+            EXPECT_EQ( node->DI[49], 1 );
+            EXPECT_EQ( node->DI[58], 1 );
+            }
+        }
+    }
+
+TEST_F( local_bus_io, di8do8_outputs_send_each_project_channel_in_one_byte )
+    {
+    for ( auto type : { io_manager::io_node::PHOENIX_AXC_F_2152,
+        io_manager::io_node::PHOENIX_AXC_F_2152_IOCTL } )
+        {
+        for ( auto article : { 2701916u, 2702071u } )
+            {
+            create( { { 2688022, 2, false }, { 2688048, 2, false },
+                { article, 1, false }, { 2688048, 2, false } }, type );
+            ASSERT_EQ( manager->read_inputs(), 0 );
+            node->DO_[17] = 1;
+            node->DO_[48] = 1;
+            node->DO_[63] = 1;
+            // Зарезервированный байт не должен попадать на клеммы DI8/DO8.
+            std::fill_n( node->DO_ + 32, 8, 1 );
+            for ( unsigned int channel = 0; channel < 8; ++channel )
+                {
+                std::fill_n( node->DO_ + 40, 8, 0 );
+                node->DO_[40 + channel] = 1;
+                ASSERT_EQ( manager->write_outputs(), 0 );
+                EXPECT_EQ( driver->outputs[2],
+                    ( std::vector<unsigned char>{
+                        static_cast<unsigned char>( 1u << channel ) } ) );
+                EXPECT_EQ( driver->outputs[1],
+                    ( std::vector<unsigned char>{ 0x02, 0x00 } ) );
+                EXPECT_EQ( driver->outputs[3],
+                    ( std::vector<unsigned char>{ 0x01, 0x80 } ) );
+                EXPECT_EQ( node->DO[40 + channel], 1 );
+                }
+            }
+        }
+    }
+
 TEST_F( local_bus_io, analog_outputs_use_big_endian )
     {
     for ( unsigned int article : { 2688527, 1088123, 1088126 } )

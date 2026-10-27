@@ -381,7 +381,10 @@ void axio_ioctl_driver::read_module( size_t index, unsigned char* data,
         {
         throw std::runtime_error( "некорректное чтение данных модуля Axiobus" );
         }
-    if ( bytes ) std::memcpy( data, inputs.data() + record.offset, bytes );
+    auto data_offset = local_bus_module_byte_offset(
+        record.info.article, record.info.bytes );
+    if ( bytes ) std::memcpy( data,
+        inputs.data() + record.offset + data_offset, bytes );
     }
 
 void axio_ioctl_driver::write_module( size_t index, unsigned char* data,
@@ -392,7 +395,10 @@ void axio_ioctl_driver::write_module( size_t index, unsigned char* data,
         {
         throw std::runtime_error( "некорректная запись данных модуля Axiobus" );
         }
-    if ( bytes ) std::memcpy( outputs.data() + record.offset, data, bytes );
+    auto data_offset = local_bus_module_byte_offset(
+        record.info.article, record.info.bytes );
+    if ( bytes ) std::memcpy(
+        outputs.data() + record.offset + data_offset, data, bytes );
     record.staged = true;
     }
 

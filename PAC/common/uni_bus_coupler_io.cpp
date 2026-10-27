@@ -1741,16 +1741,22 @@ int uni_io_manager::exchange_local_bus( bool writing )
             // Буфер сохраняет ёмкость между циклами обмена.
             local_process_data.assign( words * 2, 0 );
             auto& data = local_process_data;
+            // DI8/DO8 передаёт один байт, а таблицы клемм EasyEPLANner
+            // используют второй байт слова (биты 8..15), как у BK ETH.
+            const auto data_offset = local_bus_module_byte_offset(
+                module.article, module.bytes );
             if ( writing )
                 {
                 unsigned int type = 0, module_offset = 0;
                 make_phoenix_output( node, offset, words, type,
                     module_offset, data.data() );
-                local_driver->write_module( slot, data.data(), module.bytes );
+                local_driver->write_module( slot, data.data() + data_offset,
+                    module.bytes );
                 }
             else
                 {
-                local_driver->read_module( slot, data.data(), module.bytes );
+                local_driver->read_module( slot, data.data() + data_offset,
+                    module.bytes );
                 for ( unsigned int word = 0; word < words; ++word )
                     {
                     auto type = node->AI_types[offset + word];

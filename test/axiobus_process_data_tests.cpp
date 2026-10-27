@@ -1,5 +1,6 @@
 #include "includes.h"
 #include "axiobus_process_data.h"
+#include "axioline_local_bus.h"
 #include <array>
 
 namespace
@@ -42,6 +43,45 @@ TEST( axiobus_process_data, copies_in2m1_output_despite_zero_library_length )
     process_data::write( module, command, 2, 2 );
     EXPECT_EQ( output, ( std::array<unsigned char, 4>{
         0xCC, 0x02, 0x00, 0xDD } ) );
+    }
+
+TEST( axiobus_process_data, di8do8_uses_second_byte_of_hardware_word )
+    {
+    for ( auto article : { 2701916u, 2702071u } )
+        {
+        // Реальный образ Axiobus: каждый модуль занимает целое слово,
+        // но PDI у DI8/DO8 сообщает только один полезный байт.
+        unsigned char input[]{ 0xEE, 0xA5 };
+        std::array<unsigned char, 4> output{ 0xCC, 0, 0, 0xDD };
+        axl_module_with_zero_length module( input, output.data() + 1 );
+        auto offset = local_bus_module_byte_offset( article, 1 );
+        unsigned char value = 0;
+        process_data::read( module, &value, 1, 1, offset );
+        EXPECT_EQ( value, 0xA5 );
+        value = 0x5F;
+        process_data::write( module, &value, 1, 1, offset );
+        EXPECT_EQ( output, ( std::array<unsigned char, 4>{
+            0xCC, 0, 0x5F, 0xDD } ) );
+        }
+    }
+
+TEST( axiobus_process_data, invalid_hardware_offset_preserves_buffers )
+    {
+    unsigned char input[]{ 0x11, 0x22 };
+    std::array<unsigned char, 2> output{ 0x33, 0x44 };
+    axl_module_with_zero_length module( input, output.data() );
+    unsigned char value = 0xA5;
+    EXPECT_THROW( process_data::write( module, &value, 1, 1, 2 ),
+        std::runtime_error );
+    EXPECT_THROW( process_data::read( module, &value, 1, 1, 2 ),
+        std::runtime_error );
+    EXPECT_EQ( output, ( std::array<unsigned char, 2>{ 0x33, 0x44 } ) );
+    EXPECT_EQ( value, 0xA5 );
+    axl_module_with_zero_length missing( nullptr, nullptr );
+    EXPECT_THROW( process_data::write( missing, &value, 1, 1, 1 ),
+        std::runtime_error );
+    EXPECT_THROW( process_data::read( missing, &value, 1, 1, 1 ),
+        std::runtime_error );
     }
 
 TEST( axiobus_process_data, rejects_invalid_length_without_changing_buffers )

@@ -182,17 +182,21 @@ namespace
             void read_module( size_t index, unsigned char* data,
                 unsigned int bytes ) override
                 {
+                const auto info = module( index );
                 axiobus_process_data<PLCnext::AXLModule>::read(
                     *bus->getModules().at( index ), data, bytes,
-                    process_bytes.at( index ) );
+                    info.bytes, local_bus_module_byte_offset(
+                        info.article, info.bytes ) );
                 }
 
             void write_module( size_t index, unsigned char* data,
                 unsigned int bytes ) override
                 {
+                const auto info = module( index );
                 axiobus_process_data<PLCnext::AXLModule>::write(
                     *bus->getModules().at( index ), data, bytes,
-                    process_bytes.at( index ) );
+                    info.bytes, local_bus_module_byte_offset(
+                        info.article, info.bytes ) );
                 }
 
         private:

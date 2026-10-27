@@ -48,6 +48,14 @@ class local_bus_driver
 
 enum class local_bus_backend { LIBRARY, IOCTL };
 
+/// Байт DI8/DO8 в слове проекта и в выровненном аппаратном слове Axioline.
+constexpr unsigned int local_bus_module_byte_offset( unsigned int article,
+    unsigned int bytes )
+    {
+    return bytes == 1 && ( article == 2701916 || article == 2702071 )
+        ? 1u : 0u;
+    }
+
 /// @brief Создать выбранный транспорт без открытия аппаратного устройства.
 /// На неподдерживаемой платформе возвращает nullptr.
 std::unique_ptr<local_bus_driver> make_local_bus_driver(

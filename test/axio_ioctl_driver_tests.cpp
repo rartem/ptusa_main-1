@@ -178,6 +178,35 @@ namespace
         };
     }
 
+TEST_F( axio_ioctl_test, di8do8_payload_uses_second_byte_in_hardware_image )
+    {
+    // Первое устройство имеет один полезный байт; размеры конфигурации
+    // и PDI согласованы, а аппаратный образ сохраняет выравнивание до слова.
+    auto& config = transport->services[0].response;
+    config[19] = 1;
+    config[25] = 1;
+    transport->services[1].response[17] = 1;
+    const char article[] = "2701916";
+    std::copy_n( article, 7, transport->services[2].response.begin() + 14 );
+    transport->input = { 0xEE, 0xA5, 0x11, 0x22 };
+    ASSERT_TRUE( driver->initialize() ) << driver->get_error_text();
+    ASSERT_EQ( driver->module( 0 ).article, 2701916 );
+    ASSERT_EQ( driver->module( 0 ).bytes, 1 );
+    ASSERT_TRUE( driver->read_inputs() );
+    unsigned char first = 0, second[2]{};
+    driver->read_module( 0, &first, 1 );
+    driver->read_module( 1, second, 2 );
+    EXPECT_EQ( first, 0xA5 );
+    EXPECT_EQ( bytes( second, second + 2 ), ( bytes{ 0x11, 0x22 } ) );
+    first = 0x5F;
+    second[0] = 0x12;
+    second[1] = 0x34;
+    driver->write_module( 0, &first, 1 );
+    driver->write_module( 1, second, 2 );
+    ASSERT_TRUE( driver->write_outputs() );
+    EXPECT_EQ( transport->written.back(), ( bytes{ 0, 0x5F, 0x12, 0x34 } ) );
+    }
+
 TEST_F( axio_ioctl_test, active_bus_scans_articles_and_pads_each_module )
     {
     ASSERT_TRUE( driver->initialize() ) << driver->get_error_text();
