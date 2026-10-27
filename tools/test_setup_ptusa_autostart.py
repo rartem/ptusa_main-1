@@ -29,6 +29,12 @@ class AutostartTests(unittest.TestCase):
         for filename in ("ptusa_main", "libAxiobus.so.11"):
             (self.application / filename).touch()
         (self.project / "main.plua").touch()
+        self.installation = self.directory / "installation files"
+        self.installation.mkdir()
+        self.installer = self.installation / SCRIPT.name
+        self.installer.write_bytes(SCRIPT.read_bytes())
+        (self.installation / "ptusa_main").write_bytes(b"new executable\n")
+        (self.installation / "libAxiobus.so.11").write_bytes(b"new library\n")
         self.service = self.directory / "service.sh"
         self.service.write_text(
             "#!/bin/sh\n# ptusa_main-autostart-v1\n"
@@ -59,11 +65,12 @@ exec "$shell" -c "$command" "$@"
         for utility in self.utilities.iterdir():
             utility.chmod(0o755)
 
-    def run_shell(self, program, check=True):
+    def run_shell(self, program, check=True, installer=None):
         environment = os.environ.copy()
         environment["PTUSA_TEST_SCRIPT"] = SCRIPT.as_posix()
         environment["PTUSA_TEST_DIRECTORY"] = self.directory.as_posix()
         environment["PTUSA_TEST_UID"] = "0"
+        environment["PTUSA_TEST_WINDOWS"] = "1" if os.name == "nt" else "0"
         environment["PTUSA_TEST_SU_LOG"] = (
             self.directory / "su.log").as_posix()
         # Переопределяем системные пути: все файлы создаются во временной папке.
@@ -96,11 +103,34 @@ LOG_FILE=$PTUSA_TEST_DIRECTORY/ptusa_main.log
 PATH=$(cd "$PTUSA_TEST_DIRECTORY/utilities" && pwd):$PATH
 export PATH
 chown() { :; }
-''' + program], env=environment, capture_output=True,
+''' + program, (installer or SCRIPT).as_posix()],
+            env=environment, capture_output=True,
             text=True, encoding="utf-8", timeout=10)
         if check:
             self.assertEqual(result.returncode, 0, result.stderr)
         return result
+
+    def run_installation(self, program="", check=True, installer=None):
+        return self.run_shell('''
+check_requirements() { detect_init_system; }
+start-stop-daemon() { return 1; }
+plcnext_running() { return 1; }
+prepare_permissions() { :; }
+update-rc.d() { :; }
+install() {
+    printf '%s\\n' "$*" >> "$PTUSA_TEST_DIRECTORY/install.log"
+    # Windows не поддерживает группу с правом записи для POSIX-каталогов.
+    # Проверяем запрошенные права в логе, а сам каталог создаём с 755.
+    if [ "$PTUSA_TEST_WINDOWS" = 1 ] && [ "$1" = -d ] && [ "$3" = 775 ]; then
+        shift 3
+        command install -d -m 755 "$@"
+    else
+        command install "$@"
+    fi
+}
+chown() { printf '%s\\n' "$*" >> "$PTUSA_TEST_DIRECTORY/chown.log"; }
+''' + program + '\ninstall_service\n', check=check,
+                              installer=installer or self.installer)
 
     def load_arguments(self):
         result = self.run_shell('load_defaults\nprintf \'%s\\n\' "$PTUSA_ARGS"')
@@ -190,7 +220,7 @@ start_service
 printf 'stopped\\n' > "$PTUSA_TEST_DIRECTORY/previous-stopped"
 ''', encoding="utf-8")
         self.run_shell('''
-check_files() { check_application_files; }
+check_requirements() { :; }
 readlink() { printf '%s\\n' "$PTUSA_TEST_SCRIPT"; }
 start-stop-daemon() { return 1; }
 plcnext_running() { return 1; }
@@ -211,7 +241,7 @@ install_service
             encoding="utf-8")
         original_service = self.service.read_bytes()
         result = self.run_shell('''
-check_files() { check_application_files; }
+check_requirements() { :; }
 readlink() { printf '%s\\n' "$PTUSA_TEST_SCRIPT"; }
 prepare_permissions() { echo 'permissions changed'; }
 install_service
@@ -220,6 +250,120 @@ install_service
         self.assertEqual(result.stdout, "")
         self.assertEqual(self.service.read_bytes(), original_service)
         self.assertFalse(self.shortcuts.exists())
+
+    def test_fresh_install_creates_directories_and_copies_payload(self):
+        shutil.rmtree(self.application)
+        shutil.rmtree(self.project)
+        (self.installation / "ptusa_main.ini").write_bytes(b"sleep_time=2\n")
+        self.run_installation()
+        for filename in ("ptusa_main", "libAxiobus.so.11", SCRIPT.name):
+            self.assertEqual((self.application / filename).read_bytes(),
+                             (self.installation / filename).read_bytes())
+        self.assertEqual(self.config.read_bytes(), b"sleep_time=2\n")
+        self.assertTrue(self.project.is_dir())
+        self.assertFalse((self.project / "main.plua").exists())
+        installs = (self.directory / "install.log").read_text().splitlines()
+        owners = (self.directory / "chown.log").read_text().splitlines()
+        for directory in (self.application, self.project):
+            self.assertIn("-d -m 775 " + directory.as_posix(), installs)
+            self.assertIn("admin:plcnext " + directory.as_posix(), owners)
+
+    def test_reinstall_stops_service_before_replacing_binary(self):
+        binary = self.application / "ptusa_main"
+        binary.write_bytes(b"old executable\n")
+        self.service.write_text('''#!/bin/sh
+# ptusa_main-autostart-v1
+[ "$1" = stop ] || exit 90
+grep -q '^old executable$' "$PTUSA_TEST_DIRECTORY/ptusamain/ptusa_main" || exit 91
+touch "$PTUSA_TEST_DIRECTORY/previous-stopped"
+''', encoding="utf-8")
+        self.run_installation('''
+install() {
+    [ -f "$PTUSA_TEST_DIRECTORY/previous-stopped" ] || exit 92
+    command install "$@"
+}
+''')
+        self.assertEqual(binary.read_bytes(), b"new executable\n")
+        owners = (self.directory / "chown.log").read_text().splitlines()
+        for directory in (self.application, self.project):
+            self.assertNotIn("admin:plcnext " + directory.as_posix(), owners)
+
+    def test_failed_stop_preserves_binary_and_config(self):
+        binary = self.application / "ptusa_main"
+        binary.write_bytes(b"old executable\n")
+        self.config.write_bytes(b"sleep_time=5\n")
+        (self.installation / "ptusa_main.ini").write_bytes(b"sleep_time=2\n")
+        self.service.write_text(
+            "#!/bin/sh\n# ptusa_main-autostart-v1\nexit 17\n",
+            encoding="utf-8")
+        result = self.run_installation(check=False)
+        self.assertEqual(result.returncode, 17)
+        self.assertEqual(binary.read_bytes(), b"old executable\n")
+        self.assertEqual(self.config.read_bytes(), b"sleep_time=5\n")
+        self.assertFalse((self.directory / "install.log").exists())
+
+    def test_install_preserves_existing_config(self):
+        self.config.write_bytes(b"sleep_time=5\n")
+        (self.installation / "ptusa_main.ini").write_bytes(b"sleep_time=2\n")
+        self.run_installation()
+        self.assertEqual(self.config.read_bytes(), b"sleep_time=5\n")
+
+    def test_install_without_ini_keeps_config_optional(self):
+        self.run_installation()
+        self.assertFalse(self.config.exists())
+
+    def test_install_from_application_directory_skips_copying_onto_itself(self):
+        installer = self.application / SCRIPT.name
+        installer.write_bytes(SCRIPT.read_bytes())
+        (self.application / "ptusa_main.ini").write_bytes(b"sleep_time=2\n")
+        self.run_installation(installer=installer)
+        self.assertEqual((self.application / "ptusa_main").read_bytes(), b"")
+        self.assertEqual(self.config.read_bytes(), b"sleep_time=2\n")
+        self.assertEqual(installer.read_bytes(), SCRIPT.read_bytes())
+
+    def test_install_uses_existing_library_if_payload_has_none(self):
+        (self.installation / "libAxiobus.so.11").unlink()
+        library = self.application / "libAxiobus.so.11"
+        library.write_bytes(b"existing library\n")
+        self.run_installation()
+        self.assertEqual(library.read_bytes(), b"existing library\n")
+
+    def test_missing_payload_aborts_before_stopping_service_or_creating_directories(self):
+        for missing in ("ptusa_main", "libAxiobus.so.11"):
+            with self.subTest(missing=missing):
+                payload = self.installation / missing
+                original = payload.read_bytes()
+                payload.unlink()
+                shutil.rmtree(self.application, ignore_errors=True)
+                shutil.rmtree(self.project, ignore_errors=True)
+                result = self.run_installation(check=False)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertEqual(result.stdout, "")
+                self.assertIn(missing, result.stderr)
+                self.assertFalse(self.application.exists())
+                self.assertFalse(self.project.exists())
+                payload.write_bytes(original)
+
+    def test_install_rejects_directory_symlink_before_stopping_service(self):
+        shutil.rmtree(self.application)
+        try:
+            self.application.symlink_to(self.installation, target_is_directory=True)
+        except OSError:
+            self.skipTest("Создание символических ссылок недоступно.")
+        result = self.run_installation(check=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("не должен быть ссылкой", result.stderr)
+        self.assertEqual(result.stdout, "")
+
+    def test_install_preserves_dangling_config_symlink(self):
+        try:
+            self.config.symlink_to(self.directory / "missing.ini")
+        except OSError:
+            self.skipTest("Создание символических ссылок недоступно.")
+        (self.installation / "ptusa_main.ini").write_bytes(b"sleep_time=2\n")
+        self.run_installation()
+        self.assertTrue(self.config.is_symlink())
+        self.assertFalse(self.config.exists())
 
     def test_without_config_uses_main_script(self):
         self.assertEqual(self.load_arguments(), "main.plua")
@@ -285,19 +429,24 @@ start_service --from-systemd
     def test_systemd_reinstall_preserves_settings_and_does_not_start(self):
         self.write_defaults("main.plua --read_only_io --opc off")
         original_defaults = self.defaults.read_bytes()
+        (self.application / "ptusa_main").write_bytes(b"old executable\n")
         unit = self.directory / "ptusa_main.service"
         unit.write_text("# ptusa_main-systemd-v1\n", encoding="utf-8")
-        self.run_shell('''
-check_files() {
-    check_application_files
-    INIT_SYSTEM=systemd
-    SERVICE=$SYSTEMD_HELPER
+        self.run_installation('''
+check_requirements() {
+    mkdir "$SYSTEMD_RUNTIME_DIR"
+    detect_init_system
 }
-readlink() { printf '%s\\n' "$PTUSA_TEST_SCRIPT"; }
 systemctl() {
+    if [ "$*" = 'show -p LoadState --value plcnext.service' ]; then
+        printf 'loaded\\n'
+        return
+    fi
     printf '%s\\n' "$*" >> "$PTUSA_TEST_DIRECTORY/systemctl.log"
     case "$*" in
-        'stop ptusa_main.service') touch "$PTUSA_TEST_DIRECTORY/previous-stopped" ;;
+        'stop ptusa_main.service')
+            grep -q '^old executable$' "$EXECUTABLE" || exit 95
+            touch "$PTUSA_TEST_DIRECTORY/previous-stopped" ;;
         'stop plcnext.service') touch "$PTUSA_TEST_DIRECTORY/plcnext-stopped" ;;
         'enable ptusa_main.service') [ ! -e "$SYSV_SERVICE" ] || exit 94 ;;
     esac
@@ -308,9 +457,15 @@ prepare_permissions() {
     [ -f "$PTUSA_TEST_DIRECTORY/previous-stopped" ] || exit 91
     [ -f "$PTUSA_TEST_DIRECTORY/plcnext-stopped" ] || exit 92
 }
+install() {
+    [ -f "$PTUSA_TEST_DIRECTORY/previous-stopped" ] || exit 96
+    [ -f "$PTUSA_TEST_DIRECTORY/plcnext-stopped" ] || exit 97
+    command install "$@"
+}
 update-rc.d() { echo 'unexpected SysV registration' >&2; exit 93; }
-install_service
 ''')
+        self.assertEqual((self.application / "ptusa_main").read_bytes(),
+                         b"new executable\n")
         self.assertEqual(self.defaults.read_bytes(), original_defaults)
         helper = self.directory / "systemd-helper.sh"
         self.assertEqual(helper.read_bytes(), SCRIPT.read_bytes())
@@ -329,7 +484,7 @@ install_service
         unit = self.directory / "ptusa_main.service"
         unit.write_text("foreign\n", encoding="utf-8")
         result = self.run_shell('''
-check_files() { INIT_SYSTEM=systemd; }
+check_requirements() { INIT_SYSTEM=systemd; }
 readlink() { printf '%s\\n' "$PTUSA_TEST_SCRIPT"; }
 systemctl() { echo 'service changed'; }
 install_service
@@ -341,7 +496,7 @@ install_service
 
     def test_systemd_install_aborts_before_permissions_if_runtime_survives(self):
         result = self.run_shell('''
-check_files() { INIT_SYSTEM=systemd; }
+check_requirements() { INIT_SYSTEM=systemd; }
 readlink() { printf '%s\\n' "$PTUSA_TEST_SCRIPT"; }
 plcnext_running() { return 0; }
 check_unmanaged_processes() { :; }

@@ -9,6 +9,7 @@
 ### END INIT INFO
 # ptusa_main-autostart-v1
 # Установка от root: sh setup-ptusa-autostart.sh install
+# Файлы установки берутся из каталога этого скрипта.
 # Установка включает автозапуск, но не запускает программу немедленно.
 
 set -eu
@@ -32,6 +33,7 @@ LEGACY_SHORTCUT_DIR=/usr/local/bin
 PID_DIR=/run/ptusa_main
 PID_FILE=$PID_DIR/ptusa_main.pid
 LOG_FILE=/var/log/ptusa_main.log
+INSTALL_USER=admin
 RUN_USER=plcnext_firmware
 RUN_GROUP=plcnext
 PTUSA_ARGS=main.plua
@@ -90,6 +92,11 @@ check_application_files()
 check_files()
 {
     check_application_files
+    check_requirements
+}
+
+check_requirements()
+{
     detect_init_system
     id "$RUN_USER" >/dev/null 2>&1 || fail "Нет пользователя $RUN_USER."
     grep -q "^$RUN_GROUP:" /etc/group || fail "Нет группы $RUN_GROUP."
@@ -98,6 +105,52 @@ check_files()
     done
     if [ "$INIT_SYSTEM" = sysv ]; then
         command -v update-rc.d >/dev/null || fail "Нет команды update-rc.d."
+    fi
+}
+
+check_installation_files()
+{
+    id "$INSTALL_USER" >/dev/null 2>&1 || fail "Нет пользователя $INSTALL_USER."
+    for directory in "$APP_DIR" "$WORK_DIR"; do
+        [ ! -L "$directory" ] || fail "$directory не должен быть ссылкой."
+        if [ -e "$directory" ] && [ ! -d "$directory" ]; then
+            fail "$directory не является каталогом."
+        fi
+    done
+    [ -f "$installation_dir/ptusa_main" ] || [ -f "$EXECUTABLE" ] || \
+        fail "Нет программы ptusa_main в $installation_dir или $APP_DIR."
+    { [ -f "$installation_dir/libAxiobus.so.11" ] && \
+        [ -r "$installation_dir/libAxiobus.so.11" ]; } || \
+        { [ -f "$APP_DIR/libAxiobus.so.11" ] && \
+            [ -r "$APP_DIR/libAxiobus.so.11" ]; } || fail "Нет libAxiobus.so.11."
+}
+
+install_application_files()
+{
+    for directory in "$APP_DIR" "$WORK_DIR"; do
+        if [ ! -d "$directory" ]; then
+            install -d -m 775 "$directory"
+            chown "$INSTALL_USER:$RUN_GROUP" "$directory"
+        fi
+    done
+    # При повторной установке из APP_DIR не копируем файлы сами в себя.
+    if [ "$installation_dir" != "$(readlink -f "$APP_DIR")" ]; then
+        for filename in ptusa_main libAxiobus.so.11 setup-ptusa-autostart.sh; do
+            if [ -f "$installation_dir/$filename" ]; then
+                case "$filename" in
+                    libAxiobus.so.11) file_mode=644 ;;
+                    *) file_mode=755 ;;
+                esac
+                install -m "$file_mode" "$installation_dir/$filename" "$APP_DIR/$filename"
+                chown "$INSTALL_USER:$RUN_GROUP" "$APP_DIR/$filename"
+            fi
+        done
+    fi
+    # Существующий конфиг (включая ссылки) сохраняется при обновлении.
+    if [ -f "$installation_dir/ptusa_main.ini" ] && \
+        [ ! -e "$CONFIG_FILE" ] && [ ! -L "$CONFIG_FILE" ]; then
+        install -m 664 "$installation_dir/ptusa_main.ini" "$CONFIG_FILE"
+        chown "$INSTALL_USER:$RUN_GROUP" "$CONFIG_FILE"
     fi
 }
 
@@ -344,8 +397,11 @@ remove_shortcuts()
 install_service()
 {
     require_root
-    check_files
+    check_requirements
     source_file=$(readlink -f "$0")
+    installation_dir=$(dirname "$source_file")
+    # Проект может быть загружен после установки; start/check проверят main.plua.
+    check_installation_files
     check_service_files
     check_systemd_unit
     # Конфликты команд выявляем до остановки служб и изменения настроек.
@@ -367,6 +423,7 @@ install_service()
     if plcnext_running; then
         fail "PLCnext не остановился; права Axiobus не изменены."
     fi
+    install_application_files
     prepare_permissions
     if [ ! -e "$DEFAULTS" ]; then
         install -d -m 755 "$(dirname "$DEFAULTS")"
