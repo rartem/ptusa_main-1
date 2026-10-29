@@ -155,6 +155,9 @@ class device : public i_DO_AO_device, public par_device,
         /// @brief Расчет состояния на основе текущих данных от I/O.
         virtual void evaluate_io();
 
+        /// @brief Значения параметров по умолчанию перед загрузкой описания.
+        virtual void init_params() {}
+
         /// @brief Отладочная печать объекта в консоль.
         const char* get_name_in_Lua() const override;
 

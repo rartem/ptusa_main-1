@@ -1,6 +1,7 @@
 #include "PAC_dev_lua_tests.h"
 #include "g_errors.h"
 #include "PAC_info.h"
+#include "lua_manager.h"
 
 using namespace ::testing;
 
@@ -549,6 +550,59 @@ TEST( toLuapp, tolua_PAC_dev_DI00 )
     lua_pop( L, 1 );
 
     G_DEVICE_MANAGER()->clear_io_devices();
+    lua_close( L );
+    }
+
+TEST( toLuapp, input_filter_initialization_defaults_and_overrides )
+    {
+    lua_State* L = lua_open();
+    ASSERT_EQ( 1, tolua_PAC_dev_open( L ) );
+    G_DEVICE_MANAGER()->clear_io_devices();
+    ASSERT_EQ( 0, luaL_dostring( L,
+        "G_DEVICE_MANAGER():add_io_device( "
+        "device.DT_DI, device.DST_DI, 'DI1', '', '' )\n"
+        "G_DEVICE_MANAGER():add_io_device( "
+        "device.DT_LS, device.LS_IOLINK_MIN, 'LS1', '', '' )\n"
+        "DI1 = G_DEVICE_MANAGER():get_device(device.DT_DI, 'DI1')\n"
+        "LS1 = G_DEVICE_MANAGER():get_device(device.DT_LS, 'LS1')\n"
+        "DI1:set_cmd('P_DTO', 0, 0)\n"
+        "LS1:set_cmd('P_DTO', 0, 0)\n"
+        "system = { init_devices_params = function(self)\n"
+        "    DI1:set_par(1, 0, 100)\n"
+        "    LS1:set_par(1, 0, 200)\n"
+        "    LS1:set_par(2, 0, -10)\n"
+        "end }" ) );
+    auto previous_L = G_LUA_MANAGER->get_Lua();
+    G_LUA_MANAGER->set_Lua( L );
+    G_DEVICE_MANAGER()->init_params();
+    auto di = G_DEVICE_MANAGER()->get_device( device::DT_DI, "DI1" );
+    auto ls = G_DEVICE_MANAGER()->get_device( device::DT_LS, "LS1" );
+    EXPECT_EQ( di->get_cmd( "P_DT", 0 ), 100 );
+    EXPECT_EQ( di->get_cmd( "P_DTO", 0 ), -1 );
+    EXPECT_EQ( ls->get_cmd( "P_DT", 0 ), 200 );
+    EXPECT_EQ( ls->get_cmd( "P_ERR", 0 ), -10 );
+    EXPECT_EQ( ls->get_cmd( "P_DTO", 0 ), -1 );
+
+    EXPECT_EQ( 0, luaL_dostring( L,
+        "system.init_devices_params = function(self)\n"
+        "    DI1:set_par(2, 0, 300)\n"
+        "    LS1:set_par(3, 0, 400)\n"
+        "end" ) );
+    G_DEVICE_MANAGER()->init_params();
+    EXPECT_EQ( di->get_cmd( "P_DTO", 0 ), 300 );
+    EXPECT_EQ( ls->get_cmd( "P_DTO", 0 ), 400 );
+    EXPECT_EQ( ls->get_cmd( "P_ERR", 0 ), -10 );
+
+    EXPECT_EQ( 0, luaL_dostring( L,
+        "system.init_devices_params = function(self)\n"
+        "    DI1:set_cmd('P_DTO', 0, 500)\n"
+        "    LS1:set_cmd('P_DTO', 0, 600)\n"
+        "end" ) );
+    G_DEVICE_MANAGER()->init_params();
+    EXPECT_EQ( di->get_cmd( "P_DTO", 0 ), 500 );
+    EXPECT_EQ( ls->get_cmd( "P_DTO", 0 ), 600 );
+    G_DEVICE_MANAGER()->clear_io_devices();
+    G_LUA_MANAGER->set_Lua( previous_L );
     lua_close( L );
     }
 

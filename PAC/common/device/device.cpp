@@ -1838,6 +1838,12 @@ DI1::DI1( const char* dev_name, device::DEVICE_TYPE type,
     current_state( current_state_init_val )
     {
     set_par_name( P_DT, 0, "P_DT" );
+    set_par_name( P_DTO, 0, "P_DTO" );
+    }
+//-----------------------------------------------------------------------------
+void DI1::init_params()
+    {
+    set_par( P_DTO, 0, -1 );
     }
 //-----------------------------------------------------------------------------
 void DI1::direct_on()
@@ -1852,13 +1858,17 @@ void DI1::direct_off()
 //-----------------------------------------------------------------------------
 void DI1::evaluate_io()
     {
-    if ( auto dt = static_cast<u_int_4>( get_par( P_DT, 0 ) ); dt > 0 )
+    const auto state = get_DI( DI_INDEX );
+    const auto off_dt = get_par( P_DTO, 0 );
+    const auto dt = static_cast<u_int_4>( state == 0 && off_dt >= 0 ?
+        off_dt : get_par( P_DT, 0 ) );
+    if ( dt > 0 )
         {
-        if ( current_state != get_DI( DI_INDEX ) )
+        if ( current_state != state )
             {
             if ( get_delta_millisec( state_change_time ) > dt )
                 {
-                current_state = get_DI( DI_INDEX );
+                current_state = state;
                 state_change_time = get_millisec();
                 }
             }
@@ -1867,7 +1877,11 @@ void DI1::evaluate_io()
             state_change_time = get_millisec();
             }
         }
-    else current_state = get_DI( DI_INDEX );
+    else
+        {
+        current_state = state;
+        if ( off_dt >= 0 ) state_change_time = get_millisec();
+        }
     }
 //-----------------------------------------------------------------------------
 int DI1::get_state() const
@@ -3084,6 +3098,12 @@ level_s_iolink::level_s_iolink( const char *dev_name,
     {
     set_par_name( P_DT, 0, "P_DT" );
     set_par_name( P_ERR, 0, "P_ERR" );
+    set_par_name( P_DTO, 0, "P_DTO" );
+    }
+
+void level_s_iolink::init_params()
+    {
+    set_par( P_DTO, 0, -1 );
     }
 
 void level_s_iolink::evaluate_io()
@@ -3137,7 +3157,10 @@ void level_s_iolink::evaluate_io()
             break;
         }
 
-    if ( auto dt = static_cast<u_int_4>( get_par( P_DT, 0 ) ); dt > 0 )
+    const auto off_dt = get_par( P_DTO, 0 );
+    const auto dt = static_cast<u_int_4>( st == 0 && off_dt >= 0 ?
+        off_dt : get_par( P_DT, 0 ) );
+    if ( dt > 0 )
         {
         if ( current_state != st )
             {
@@ -3152,7 +3175,11 @@ void level_s_iolink::evaluate_io()
             time = get_millisec();
             }
         }
-    else current_state = st;
+    else
+        {
+        current_state = st;
+        if ( off_dt >= 0 ) time = get_millisec();
+        }
     }
 
 void level_s_iolink::set_article( const char* new_article )
